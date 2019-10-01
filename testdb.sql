@@ -30,9 +30,9 @@ DROP TABLE IF EXISTS `all_disk_partition`;
 CREATE TABLE IF NOT EXISTS `all_disk_partition` (
   `hostname` varchar(30) DEFAULT NULL,
   `IP` varchar(30) DEFAULT NULL,
-  `device_detail` varchar(30) DEFAULT NULL,
-  `mount_point` varchar(30) DEFAULT NULL,
-  `file_system_type` varchar(30) DEFAULT NULL,
+  `device_detail` varchar(200) DEFAULT NULL,
+  `mount_point` varchar(200) DEFAULT NULL,
+  `file_system_type` varchar(200) DEFAULT NULL,
   `total_size` int(20) DEFAULT NULL,
   `used_space` int(20) DEFAULT NULL,
   `free_space` int(20) DEFAULT NULL,
@@ -50,7 +50,7 @@ DROP TABLE IF EXISTS `all_large_directory`;
 CREATE TABLE IF NOT EXISTS `all_large_directory` (
   `host_name` varchar(30) DEFAULT NULL,
   `host_ip` varchar(30) DEFAULT NULL,
-  `directory_name` varchar(100) DEFAULT NULL,
+  `directory_name` varchar(200) DEFAULT NULL,
   `directory_size` int(30) DEFAULT NULL,
   `execution_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -65,8 +65,8 @@ DROP TABLE IF EXISTS `all_large_file`;
 CREATE TABLE IF NOT EXISTS `all_large_file` (
   `host_name` varchar(30) DEFAULT NULL,
   `host_ip` varchar(30) DEFAULT NULL,
-  `mountpoint` varchar(30) DEFAULT NULL,
-  `file_name` varchar(100) DEFAULT NULL,
+  `mountpoint` varchar(200) DEFAULT NULL,
+  `file_name` varchar(200) DEFAULT NULL,
   `file_size` int(30) DEFAULT NULL,
   `last_modified_date` varchar(30) DEFAULT NULL,
   `execution_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
@@ -80,8 +80,8 @@ CREATE TABLE IF NOT EXISTS `all_large_file` (
 
 DROP TABLE IF EXISTS `size_by_extn`;
 CREATE TABLE IF NOT EXISTS `size_by_extn` (
-  `hostname` varchar(100) DEFAULT NULL,
-  `ip` varchar(100) DEFAULT NULL,
+  `host_name` varchar(30) DEFAULT NULL,
+  `host_ip` varchar(30) DEFAULT NULL,
   `directory_name` varchar(300) DEFAULT NULL,
   `file_type` varchar(100) DEFAULT NULL,
   `total_size` int(30) DEFAULT NULL,

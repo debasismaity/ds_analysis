@@ -4,11 +4,29 @@
   sudo: yes
 
   tasks:
+  - name: Install MySQL-pytho*
+    yum:
+      name: MySQL-pytho*
+      state: present
+
+  - name: DOwnload PIP
+    shell: curl "https://bootstrap.pypa.io/get-pip.py" -o /tmp/get-pip.py
+
+  - name: Install PIP
+    shell: python /tmp/get-pip.py
+
+  - name: Install the Python MySQLB module
+    pip: name=MySQL-python
+
+  - name: Install mysql connector
+    pip: name=mysql-connector-python
+
   - name: Copy file
-    copy: src=/DS_ANALYZE/disk_usage.py dest=/tmp/disk_usage.py owner=root group=root mode=755
+    copy: src=/DS_ANALYZE/disk_usage_updated.py dest=/tmp/disk_usage_updated.py owner=root group=root mode=755
 
   - name: Execute script
-    command: python /tmp/disk_usage.py
+    command: python /tmp/disk_usage_updated.py
     register: out
 
   - debug: var=out.stdout_lines
+

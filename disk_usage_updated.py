@@ -179,9 +179,9 @@ if __name__ == '__main__':
     file_size_limit=50
     file_extn_size_limit=200
 
-    mydb = mysql.connector.connect(host="DB",    # your host, usually localhost
-                     user="root",         # your username
-                     passwd="root123",  # your password
+    mydb = mysql.connector.connect(host="192.168.56.101",    # your host, usually localhost
+                     user="ds",         # your username
+                     passwd="ds",  # your password
                      db="dsdb")        # name of the data base
     host_name = socket.gethostname() 
     host_ip = socket.gethostbyname(host_name) 
