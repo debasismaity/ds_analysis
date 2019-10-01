@@ -1,0 +1,14 @@
+# playbook.yml
+---
+- hosts: server
+  sudo: yes
+
+  tasks:
+  - name: Copy file
+    copy: src=/DS_ANALYZE/disk_usage.py dest=/tmp/disk_usage.py owner=root group=root mode=755
+
+  - name: Execute script
+    command: python /tmp/disk_usage.py
+    register: out
+
+  - debug: var=out.stdout_lines

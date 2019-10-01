@@ -1,0 +1,19 @@
+[server]
+192.168.56.101
+192.168.56.102
+192.168.56.103
+
+[local_host]
+localhost ansible_port=22 ansible_user=root ansible_password=root123 ansible_host=127.0.0.1
+
+
+[local_host:vars]
+ssh_key_filename="ansible_rsa"
+remote_machine_username="root"
+remote_machine_password="root123"
+
+
+[ansible_setup_passwordless_setup_group]
+centos-vm1 ansible_port=22 ansible_user=root ansible_host=192.168.56.101
+centos-vm2 ansible_port=22 ansible_user=root ansible_host=192.168.56.102
+centos-vm3 ansible_port=22 ansible_user=root ansible_host=192.168.56.103
